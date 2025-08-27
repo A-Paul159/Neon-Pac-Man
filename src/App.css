@@ -1,38 +1,198 @@
-.App {
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.pacman-title {
+  font-family: 'Press Start 2P', cursive;
+  color: #ffeb3b;
+  text-shadow: 2px 2px #f00, -2px -2px #0ff;
+  font-size: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cell {
+  position: absolute;
+  border-radius: 0;
+  transition: all 0.1s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wall {
+  background-color: #2424ef;
+  border: 1px solid #2424ef;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.pacman {
+  background-color: #ff0;
+  border-radius: 50%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease, left 0.1s ease, top 0.1s ease;
+  overflow: hidden;
+  z-index: 5;
 }
 
-.App-link {
-  color: #61dafb;
+.pacman::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  clip-path: polygon(50% 50%, 100% 25%, 100% 75%);
+  animation: munch 0.3s infinite;
+  z-index: 5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes munch {
+  0%   { clip-path: polygon(50% 50%, 100% 40%, 100% 60%); }
+  50%  { clip-path: polygon(50% 50%, 100% 0%, 100% 100%); }
+  100% { clip-path: polygon(50% 50%, 100% 40%, 100% 60%); }
 }
+
+.ghost {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ghost {
+  border-radius: 50%;
+  opacity: 1;
+  z-index: 5;
+}
+
+.ghost::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: inherit;
+  z-index: 5;
+}
+
+
+.dot {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 10px !important;
+  height: 10px !important;
+  margin: 11px;
+  z-index: 1;
+}
+
+.power-pellet {
+  background-color: #6f00ab;
+  border-radius: 50%;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 9px;
+  z-index: 1;
+}
+
+.speed-boost {
+  background-color: rgb(252, 252, 28);
+  border-radius: 50%;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 10px;
+  z-index: 1;
+}
+
+.extra-life {
+  background-color: rgb(195, 3, 3);
+  border-radius: 50%;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 10px;
+  z-index: 1;
+}
+
+@keyframes float {
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.2); }
+}
+
+@keyframes flash {
+  50% { opacity: 0.5; }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.maze-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: block;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.custom-modal {
+  background-color: #111;
+  border: 2px solid #0ff;
+  box-shadow: 0 0 20px #0ff;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.neon-title {
+  font-size: 1.8rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.btn-neon {
+  background-color: transparent;
+  border: 2px solid #0ff;
+  color: #0ff;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-shadow: 0 0 5px #0ff;
+  box-shadow: 0 0 10px #0ff;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-neon:hover {
+  background-color: #0ff;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+.pacman.collision {
+  background-color: red !important;
+  animation: shake 0.7s;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 0); }
+  50% { transform: translate(5px, 0); }
+  75% { transform: translate(-5px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+
