@@ -22,13 +22,18 @@ Navigate levels, avoid ghosts, and collect pellets while enjoying a glowing retr
 
 ---
 
+<img width="1435" height="812" alt="Screen Shot 2025-08-26 at 6 40 39 PM" src="https://github.com/user-attachments/assets/a334397b-e51c-43a6-af6d-c2dfecbe637e" />
+<img width="1437" height="805" alt="Screen Shot 2025-08-26 at 6 41 11 PM" src="https://github.com/user-attachments/assets/424aa7e5-882f-47b7-9ba7-dc043cd2ca33" />
+
 ## 🚀 Getting Started
 
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/YOUR_USERNAME/neon-pacman.git
 cd neon-pacman
-<img width="1435" height="812" alt="Screen Shot 2025-08-26 at 6 40 39 PM" src="https://github.com/user-attachments/assets/a334397b-e51c-43a6-af6d-c2dfecbe637e" />
-<img width="1437" height="805" alt="Screen Shot 2025-08-26 at 6 41 11 PM" src="https://github.com/user-attachments/assets/424aa7e5-882f-47b7-9ba7-dc043cd2ca33" />
+
+```bash
+
+
 
 
